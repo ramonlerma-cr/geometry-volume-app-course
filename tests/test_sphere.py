@@ -16,8 +16,9 @@ def test_volume_sphere_negative_dimension():
     Document current behaviour when a negative dimension is used.
     """
     radius = -2.0
-    expected = (4.0 / 3.0) * 3.141592653589793 * radius**3
-    assert volume_sphere(radius) == expected
+    with pytest.raises(ValueError):
+        volume_sphere(radius)
+
 
 
 def test_volume_sphere_float_tolerance():
